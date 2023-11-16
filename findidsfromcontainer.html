@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Anchor IDs</title>
+</head>
+<body>
+
+	<h1> Finding Ids of Anchor under a div Dynamically </h1>
+
+  <div id="targetDiv">
+    <a id="link1" href="#">Link 1</a>
+    <a id="link2" href="#">Link 2</a>
+    <a id="link3" href="#">Link 3</a>
+  </div>
+
+  <script>
+    function findAnchorIDs(containerID) {
+      var container = document.getElementById(containerID);
+
+      if (container) {
+        var anchorTags = container.getElementsByTagName("a");
+
+        var anchorIDs = Array.from(anchorTags).map(function(anchor) {
+          return anchor.id;
+        });
+
+        console.log("Anchor IDs:", anchorIDs);
+        return anchorIDs;
+      } else {
+        console.error("Container not found with ID:", containerID);
+        return null;
+      }
+    }
+
+    // Example usage
+    findAnchorIDs("targetDiv");
+  </script>
+
+</body>
+</html>
